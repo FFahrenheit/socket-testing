@@ -40,6 +40,12 @@ exports.attach = (app) => {
             console.log(clients[socket.id]);
         });
 
+        socket.on('disconnect', () => {
+            console.log(socket.id + ' disconnected');
+            delete clients[socket.id];
+            console.log(clients);
+        });
+
     });
 }
 
